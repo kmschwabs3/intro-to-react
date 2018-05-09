@@ -12,17 +12,33 @@
      <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
      <script type="text/babel">
         class Blurb extends React.Component {
+        	constructor(props){
+        		super(props);
+        		this.state = {
+        			name: 'Krissy',
+        			age: 30,
+        			comment: 'This part of the assignment was a bit more challenging since I kept using = for the key names rather than :.'
+        		}
+        	}
+
          render() {
            return (
              <div>
-               <p>I created a React Element!</p>
+               <h1>Check it out, {this.props.text}</h1>
+               <p>{this.props.paragraph}</p>
+               <p>{this.props.notes}</p>
+               <p>Name: {this.state.name}</p>
+               <h2>Age: {this.state.age}</h2>
+               <p>{this.state.comment}</p>
              </div>
            );
          }
        }
  
        ReactDOM.render(
-         <Blurb />, document.getElementById('app')
+         <Blurb text="I created a React Element!"
+         		paragraph= "I can add some more stuff here."
+         		notes="This part of the assignment seems pretty simple."/>, document.getElementById('app')
        );
      </script>
   </body>
